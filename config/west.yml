@@ -4,7 +4,7 @@ manifest:
       url-base: https://github.com/zmkfirmware
     # support nice_oled and nice_epaper
     - name: loss-and-quick
-      url-base: https://github.com/loss-and-quick/zmk-nice-oled
+      url-base: https://github.com/loss-and-quick
   projects:
     - name: zmk
       remote: zmkfirmware
