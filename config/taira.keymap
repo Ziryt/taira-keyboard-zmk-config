@@ -11,7 +11,14 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        left_sym {
+            if-layers = <3 4>;
+            then-layer = <5>;
+        };
+    };
 
     macros {
         colemak_switch: eng_colemak_switch {
@@ -289,8 +296,8 @@
 &under_bhv        &kp N1          &kp N2        &kp N3  &kp N4  &kp N5                                                                   &kp N6  &kp N7  &kp N8     &kp N9          &kp N0           &kp PG_UP
 &kp TAB           &kp Q           &kp W         &F_bhv  &P_bhv  &B_bhv                                                                   &J_bhv  &L_bhv  &U_bhv     &Y_bhv          &semcol_bhv      &kp PG_DN
 &kp ESC           &kp A           &R_bhv        &S_bhv  &T_bhv  &kp G                                                                    &M_bhv  &N_bhv  &E_bhv     &I_bhv          &O_bhv           &kp SQT
-&kp LEFT_CONTROL  &kp Z           &kp X         &kp C   &D_bhv  &V_bhv             &kp LEFT_ALT  &kp LSHFT  &mo 6  &kp DEL               &K_bhv  &H_bhv  &kp COMMA  &kp DOT         &kp SLASH        &kp QUESTION
-&mo 7             &kp DOWN_ARROW  &kp UP_ARROW  &mo 4                   &kp ENTER  &kp SPACE     &kp LWIN   &mo 3  &kp BSPC  &kp RSHIFT                  &mo 5      &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp END
+&kp LEFT_CONTROL  &kp Z           &kp X         &kp C   &D_bhv  &V_bhv             &kp LEFT_ALT  &kp LSHFT  &mo 7  &kp DEL               &K_bhv  &H_bhv  &kp COMMA  &kp DOT         &kp SLASH        &kp QUESTION
+&mo 4             &kp DOWN_ARROW  &kp UP_ARROW  &mo 3                   &kp ENTER  &kp SPACE     &kp LWIN   &mo 5  &kp BSPC  &kp RSHIFT                  &mo 6      &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp K_APP
             >;
 
             label = "def";
@@ -301,8 +308,8 @@
 &under_bhv        &kp N1          &kp N2        &kp N3  &kp N4  &kp N5                                                                   &kp N6  &kp N7  &kp N8         &kp N9          &kp N0           &kp PG_UP
 &kp TAB           &kp Q           &kp W         &kp E   &kp R   &kp T                                                                    &kp Y   &kp U   &kp I          &kp O           &kp P            &kp RA(LBKT)
 &kp ESC           &kp A           &kp S         &kp D   &kp F   &kp G                                                                    &kp H   &kp J   &kp K          &kp L           &kp RA(SEMI)     &kp RA(SQT)
-&kp LEFT_CONTROL  &kp Z           &kp X         &kp C   &kp V   &kp B              &kp LEFT_ALT  &kp LSHFT  &mo 6  &kp DEL               &kp N   &kp M   &kp RA(COMMA)  &kp RA(DOT)     &kp DOT          &kp QUESTION
-&mo 7             &kp DOWN_ARROW  &kp UP_ARROW  &mo 4                   &kp ENTER  &kp SPACE     &kp LWIN   &mo 3  &kp BSPC  &kp RSHIFT                  &mo 5          &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp END
+&kp LEFT_CONTROL  &kp Z           &kp X         &kp C   &kp V   &kp B              &kp LEFT_ALT  &kp LSHFT  &mo 7  &kp DEL               &kp N   &kp M   &kp RA(COMMA)  &kp RA(DOT)     &kp DOT          &kp QUESTION
+&mo 4             &kp DOWN_ARROW  &kp UP_ARROW  &mo 3                   &kp ENTER  &kp SPACE     &kp LWIN   &mo 5  &kp BSPC  &kp RSHIFT                  &mo 6          &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp K_APP
             >;
 
             label = "qwe";
@@ -313,11 +320,35 @@
 &kp UNDER      &kp N1     &kp N2         &kp N3  &kp N4  &kp N5                                                                   &kp N6  &kp N7  &kp N8     &kp N9    &kp N0     &to 0
 &kp TAB        &kp Q      &kp W          &kp E   &kp R   &kp T                                                                    &kp Y   &kp U   &kp I      &kp O     &kp P      &kp BSLH
 &kp BACKSPACE  &kp A      &kp S          &kp D   &kp F   &kp G                                                                    &kp H   &kp J   &kp K      &kp L     &kp SEMI   &kp SQT
-&kp LSHFT      &kp Z      &kp X          &kp C   &kp V   &kp B                 &kp DEL    &kp ESC  &mo 6  &kp LEFT_WIN            &kp N   &kp M   &kp COMMA  &kp DOT   &kp SLASH  &kp ENTER
-&kp LCTRL      &kp SLASH  &kp BACKSLASH  &mo 8                   &kp LEFT_ALT  &kp SPACE  &mo 3    &mo 4  &kp BSPC      &kp RALT                  &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT
+&kp LSHFT      &kp Z      &kp X          &kp C   &kp V   &kp B                 &kp DEL    &kp ESC  &mo 7  &kp LEFT_WIN            &kp N   &kp M   &kp COMMA  &kp DOT   &kp SLASH  &kp ENTER
+&kp LCTRL      &kp SLASH  &kp BACKSLASH  &mo 8                   &kp LEFT_ALT  &kp SPACE  &mo 5    &mo 3  &kp BSPC      &kp RALT                  &to 6      &kp DOWN  &kp UP     &kp RIGHT
             >;
 
             label = "GAME";
+        };
+
+        raise_layer {
+            bindings = <
+&kp LA(PRINTSCREEN)  &none                    &none       &none         &none            &none                                                           &none      &none           &none           &none            &none   &to 2
+&kp LS(LG(S))        &none                    &none       &bt BT_SEL 1  &bt BT_SEL 0     &to 9                                                           &none      &none           &none           &none            &none   &none
+&none                &none                    &ua_switch  &ru_switch    &colemak_switch  &none                                                           &mkp MCLK  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none   &none
+&kp RA(F24)          &none                    &none       &none         &none            &none         &none              &none  &none   &none           &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none   &none
+&kp RA(F23)          &sleep_behavior 0 LG(L)  &none       &trans                                &none  &kp LC(LS(SPACE))  &none  &trans  &trans  &trans                             &trans          &trans           &trans  &trans
+            >;
+
+            label = "ras";
+        };
+
+        numpad_layer {
+            bindings = <
+&kp KP_NUM  &kp KP_LEFT_PARENTHESIS  &kp KP_RIGHT_PARENTHESIS  &trans     &trans     &trans                                                        &trans           &trans           &trans           &trans           &trans        &to 0
+&trans      &kp KP_SLASH             &kp KP_N7                 &kp KP_N8  &kp KP_N9  &kp KP_MINUS                                                  &kp KP_SLASH     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS  &trans
+&trans      &kp KP_MULTIPLY          &kp KP_N4                 &kp KP_N5  &kp KP_N6  &kp KP_PLUS                                                   &kp KP_MULTIPLY  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS   &trans
+&trans      &kp KP_EQUAL             &kp KP_N1                 &kp KP_N2  &kp KP_N3  &kp KP_ENTER          &trans  &trans  &trans  &trans          &kp KP_EQUAL     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER  &trans
+&trans      &kp KP_COMMA             &kp KP_DOT                &kp KP_N0                           &trans  &trans  &trans  &trans  &trans  &trans                                    &kp KP_NUMBER_0  &kp KP_DOT       &trans        &trans
+            >;
+
+            label = "num";
         };
 
         symbol_layer {
@@ -332,25 +363,13 @@
             label = "sym";
         };
 
-        raise_layer {
-            bindings = <
-&kp LA(PRINTSCREEN)  &none                    &none       &none         &none            &none                                                           &to 10     &none           &none           &none            &none   &to 2
-&kp LS(LG(S))        &none                    &none       &bt BT_SEL 1  &bt BT_SEL 0     &to 9                                                           &none      &none           &none           &none            &none   &none
-&none                &none                    &ua_switch  &ru_switch    &colemak_switch  &none                                                           &mkp MCLK  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none   &none
-&kp RA(F24)          &none                    &none       &none         &none            &none         &none              &none  &none   &none           &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none   &none
-&kp RA(F23)          &sleep_behavior 0 LG(L)  &none       &trans                                &none  &kp LC(LS(SPACE))  &none  &trans  &trans  &trans                             &trans          &trans           &trans  &trans
-            >;
-
-            label = "ras";
-        };
-
         nav_layer {
             bindings = <
-&trans                 &trans  &trans  &trans  &trans  &trans                                                     &trans        &trans     &trans     &trans     &trans         &trans
-&trans                 &trans  &trans  &trans  &trans  &trans                                                     &trans        &kp HOME   &kp UP     &kp END    &trans         &trans
-&trans                 &trans  &trans  &trans  &trans  &trans                                                     &kp RC(LEFT)  &kp LEFT   &kp DOWN   &kp RIGHT  &kp RC(RIGHT)  &trans
-&kp LS(RIGHT_CONTROL)  &trans  &trans  &trans  &trans  &trans          &trans  &kp LSHFT  &trans  &trans          &trans        &kp PG_DN  &kp PG_UP  &trans     &trans         &trans
-&trans                 &trans  &trans  &trans                  &trans  &trans  &trans     &trans  &trans  &trans                           &trans     &trans     &trans         &trans
+&trans             &trans  &trans  &trans  &trans  &trans                                                                &trans        &trans     &trans     &trans     &trans         &trans
+&trans             &trans  &trans  &trans  &trans  &trans                                                                &trans        &kp HOME   &kp UP     &kp END    &trans         &trans
+&trans             &trans  &trans  &trans  &trans  &trans                                                                &kp RC(LEFT)  &kp LEFT   &kp DOWN   &kp RIGHT  &kp RC(RIGHT)  &trans
+&kp RIGHT_CONTROL  &trans  &trans  &trans  &trans  &trans          &trans  &kp LSHFT  &trans  &trans                     &trans        &kp PG_DN  &kp PG_UP  &trans     &trans         &trans
+&trans             &trans  &trans  &trans                  &trans  &trans  &trans     &trans  &kp RC(BACKSPACE)  &trans                           &trans     &trans     &trans         &trans
             >;
 
             label = "nav";
@@ -358,26 +377,14 @@
 
         f_layer {
             bindings = <
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                                                   &kp F7           &kp F8      &kp F9        &kp F10       &kp F11     &kp F12
 &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                                                  &kp F19          &kp F20     &kp F21       &kp F22       &kp F23     &kp F24
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                                                   &kp F7           &kp F8      &kp F9        &kp F10       &kp F11     &kp F12
 &none    &none    &none    &none    &none    &none                                                    &kp PRINTSCREEN  &kp C_PP    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none
 &none    &none    &none    &none    &none    &none            &trans  &trans  &trans  &trans          &none            &kp C_PREV  &kp C_RW      &kp C_FF      &kp C_NEXT  &none
 &trans   &trans   &trans   &trans                     &trans  &trans  &trans  &trans  &trans  &trans                               &trans        &trans        &trans      &trans
             >;
 
             label = "fun";
-        };
-
-        numpad_layer {
-            bindings = <
-&kp KP_NUM  &kp KP_LEFT_PARENTHESIS  &kp KP_RIGHT_PARENTHESIS  &trans     &trans     &trans                                                        &trans           &trans           &trans           &trans           &trans        &to 0
-&trans      &kp KP_SLASH             &kp KP_N7                 &kp KP_N8  &kp KP_N9  &kp KP_MINUS                                                  &kp KP_SLASH     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS  &trans
-&trans      &kp KP_MULTIPLY          &kp KP_N4                 &kp KP_N5  &kp KP_N6  &kp KP_PLUS                                                   &kp KP_MULTIPLY  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS   &trans
-&trans      &kp KP_EQUAL             &kp KP_N1                 &kp KP_N2  &kp KP_N3  &kp KP_ENTER          &trans  &trans  &trans  &trans          &kp KP_EQUAL     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER  &trans
-&trans      &kp KP_COMMA             &kp KP_DOT                &kp KP_N0                           &trans  &trans  &trans  &trans  &trans  &trans                                    &kp KP_NUMBER_0  &kp KP_DOT       &trans        &trans
-            >;
-
-            label = "num";
         };
 
         game_num_layer {
@@ -394,26 +401,14 @@
 
         ble_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5                                            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4      &bt BT_SEL 5
-&none         &none         &none         &none         &none         &none                                                   &none         &none         &none         &none              &none             &none
-&none         &none         &none         &none         &none         &none                                                   &none         &none         &none         &none              &none             &to 0
-&none         &none         &none         &none         &none         &none                &none  &none  &none  &none         &none         &none         &none         &none              &none             &none
-&bt BT_CLR    &none         &none         &none                                     &none  &none  &none  &none  &none  &none                              &none         &ext_power EP_OFF  &ext_power EP_ON  &bt BT_CLR
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5                                            &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3       &bt BT_SEL 4      &bt BT_SEL 5
+&none         &none         &none         &none         &none         &none                                                   &none           &none         &none         &none              &none             &none
+&none         &none         &none         &none         &none         &none                                                   &none           &none         &none         &none              &none             &to 0
+&none         &none         &none         &none         &none         &none                &none  &none  &none  &none         &studio_unlock  &none         &none         &none              &none             &none
+&bt BT_CLR    &none         &none         &none                                     &none  &none  &none  &none  &none  &none                                &none         &ext_power EP_OFF  &ext_power EP_ON  &bt BT_CLR
             >;
 
             label = "ble";
-        };
-
-        layer_9 {
-            bindings = <
-&kp UNDER  &kp N1          &kp N2        &kp N3  &kp N4     &kp N5                                                              &kp N6  &kp N7  &kp N8    &kp N9          &kp N0           &to 0
-&kp TAB    &kp W           &kp R         &kp K   &kp COMMA  &kp Q                                                               &kp O   &kp S   &kp Z     &kp APOS        &kp A            &trans
-&kp ESC    &kp P           &kp D         &kp Y   &kp N      &kp L                                                               &kp B   &kp F   &kp J     &kp T           &kp C            &trans
-&kp LCTRL  &kp SEMI        &kp G         &kp H   &kp V      &kp U              &kp LALT   &kp LGUI   &trans  &kp LSHFT          &kp X   &kp M   &kp E     &kp DOT         &kp I            &kp FSLH
-&trans     &kp DOWN_ARROW  &kp UP_ARROW  &trans                     &kp ENTER  &kp SPACE  &kp LSHFT  &trans  &kp BSPC   &trans                  &kp HOME  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp END
-            >;
-
-            label = "exp";
         };
     };
 };
